@@ -41,12 +41,14 @@ public class MainController {
     // Cosmetic Methods
     @GetMapping("/addcosmetics")
     public String cosmeticsForm(Model model){
+        model.addAttribute("cosmetic", cosmeticsRepository.findAll());
         model.addAttribute("addcosmetics", new Cosmetics());
         return "cosmeticsinput";
     }
 
     @PostMapping("/addcosmetics")
     public String postedCosmetics(@Valid @ModelAttribute("addcosmetics") Model model){
+        model.addAttribute("cosmetic", cosmeticsRepository.findAll());
         model.addAttribute("addcosmetics", new Cosmetics());
         return "cosmeticsinput";
     }
@@ -56,6 +58,10 @@ public class MainController {
         if (result.hasErrors()){
             return "cosmeticsinput";
         }
+        Double
+        Double x = cosmetics.getCosmeticsprice()*cosmetics.getCosmeticsquantity();
+        cosmetics.setTotalprice(x);
+
         cosmeticsRepository.save(cosmetics);
         return "redirect:/addcosmetics";
     }

@@ -32,6 +32,16 @@
     <input type="submit" value="ADD Entry" />
     <br />
 </form>
+<table>
+
+    <tr th:each="snacks : ${snack}">
+        Item Name: <span th:text="${snacks.snackname}"></span><br />
+        Crunchiness: <span th:text="${snacks.snackcrunchiness}"></span><br />
+        Price: <span th:text="${snacks.snackprice}"></span><br />
+        Item Price: <span th:text="${snacks.snackquantity}"></span><br />
+        Total Price: <span th:text="${snacks.totalprice}"></span><br /><br /><br />
+    </tr>
+</table>
 <a th:href="@{/addcleaning}">Cleaning Items</a>
 <a th:href="@{/addcosmetics}">Cosmetic Items</a>
 <a th:href="@{/inventorycompletion}">Complete Inventory</a>

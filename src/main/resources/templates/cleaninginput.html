@@ -32,6 +32,15 @@
     <input type="submit" value="ADD Entry" />
     <br />
 </form>
+<table>
+    <tr th:each="cleaningItems : ${cleaning}">
+        Item Name: <span th:text="${cleaningItems.cleaningname}"></span><br />
+        Cleaning Strength: <span th:text="${cleaningItems.cleaningstrength}"></span><br />
+        Unit Price: <span th:text="${cleaningItems.cleaningprice}"></span><br />
+        Quantities<span th:text="${cleaningItems.cleaningquantities}"></span><br />
+        Total Price: <span th:text="${cleaningItems.totalprice}"></span><br /><br /><br />
+    </tr>
+</table>
 <a th:href="@{/addsnacks}">Snack Items</a>
 <a th:href="@{/addcosmetics}">Cosmetic Items</a>
 <a th:href="@{/inventorycompletion}">Complete Inventory</a>

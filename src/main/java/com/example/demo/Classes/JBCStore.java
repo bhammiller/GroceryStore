@@ -78,5 +78,7 @@ public class JBCStore {
     }
 
     // Math Stuff
+     private Double inventoryrevenue;
+
 
 }

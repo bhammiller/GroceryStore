@@ -28,6 +28,18 @@ public class CleaningItems {
     @NotNull
     private Double cleaningquantities;
 
+    private Double totalprice;
+
+    private Double pricesum;
+
+    public Double getPricesum() { return pricesum; }
+
+    public void setPricesum(Double pricesum) { this.pricesum = pricesum; }
+
+    public Double getTotalprice() { return totalprice; }
+
+    public void setTotalprice(Double totalprice) { this.totalprice = totalprice; }
+
     public long getId() {
         return id;
     }
