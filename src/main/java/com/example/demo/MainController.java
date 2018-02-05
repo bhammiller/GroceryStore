@@ -22,6 +22,11 @@ public class MainController {
     @Autowired
     JBCRepository jbcRepository;
 
+    Double cosmeticysum = 0.00;
+    Double cleanysum = 0.00;
+    Double snackysum=0.00;
+    JBCStore jbcStore;
+
     // Starting Methods
     @GetMapping("/")
     public String startInventory(Model model){
@@ -54,14 +59,15 @@ public class MainController {
     }
 
     @PostMapping("/processcosmetics")
-    public String processCosmetics(@Valid @ModelAttribute("addcosmetics") Cosmetics cosmetics, BindingResult result){
+    public String processCosmetics(@Valid @ModelAttribute("addcosmetics") Cosmetics cosmetics,BindingResult result){
         if (result.hasErrors()){
             return "cosmeticsinput";
         }
-        Double
         Double x = cosmetics.getCosmeticsprice()*cosmetics.getCosmeticsquantity();
         cosmetics.setTotalprice(x);
-
+        cosmeticysum=cosmeticysum+x;
+        jbcStore.setCosmeticsum(cosmeticysum);
+        jbcRepository.save(jbcStore);
         cosmeticsRepository.save(cosmetics);
         return "redirect:/addcosmetics";
     }
@@ -69,12 +75,14 @@ public class MainController {
     // Cleaning Methods
     @GetMapping("/addcleaning")
     public String cleaningForm(Model model){
+        model.addAttribute("cleaning", cleaningRepository.findAll());
         model.addAttribute("addcleaning", new CleaningItems());
         return "cleaninginput";
     }
 
     @PostMapping("/addcleaning")
     public String postedcleaning(@Valid @ModelAttribute("addcleaning") Model model){
+        model.addAttribute("cleaning", cleaningRepository.findAll());
         model.addAttribute("addcleaning", new CleaningItems());
         return "cleaninginput";
     }
@@ -84,6 +92,11 @@ public class MainController {
         if (result.hasErrors()){
             return "cleaninginput";
         }
+        Double x = cleaningItems.getCleaningprice()*cleaningItems.getCleaningquantities();
+        cleaningItems.setTotalprice(x);
+        cleanysum=cleanysum+x;
+        jbcStore.setCleaningsum(cleanysum);
+        jbcRepository.save(jbcStore);
         cleaningRepository.save(cleaningItems);
         return "redirect:/addcleaning";
     }
@@ -91,12 +104,14 @@ public class MainController {
     // Snack Methods
     @GetMapping("/addsnacks")
     public String snacksForm(Model model){
+        model.addAttribute("snack", snackRepository.findAll());
         model.addAttribute("addsnacks", new Snacks());
         return "snackinput";
     }
 
     @PostMapping("/addsnacks")
     public String postedSnacks(@Valid @ModelAttribute("addsnacks") Model model){
+        model.addAttribute("snack", snackRepository.findAll());
         model.addAttribute("addsnacks", new Snacks());
         return "snackinput";
     }
@@ -106,7 +121,11 @@ public class MainController {
         if (result.hasErrors()){
             return "snackinput";
         }
-        snackRepository.save(snacks);
+        Double x = snacks.getSnackprice()*snacks.getSnackquantity();
+        snacks.setTotalprice(x);
+        snackysum =snackysum + x;
+        jbcStore.setSnacksum(snackysum);
+        jbcRepository.save(jbcStore);
         return "redirect:/addsnacks";
     }
 

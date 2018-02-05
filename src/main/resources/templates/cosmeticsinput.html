@@ -10,6 +10,7 @@
       th:object="${addcosmetics}"
       method="post">
     <h2>Cosmetics</h2><br />
+
     <input type="hidden" th:field="*{id}" />
     Item Name :<input type="text" th:field="*{cosmeticsname}" />
     <span th:if="${#fields.hasErrors('cosmeticsname')}"

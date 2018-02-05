@@ -44,6 +44,36 @@ public class JBCStore {
     @NotNull
     private String storemanager;
 
+    private double cosmeticsum;
+
+    private double cleaningsum;
+
+    private double snacksum;
+
+    public double getCosmeticsum() {
+        return cosmeticsum;
+    }
+
+    public void setCosmeticsum(double cosmeticsum) {
+        this.cosmeticsum = cosmeticsum;
+    }
+
+    public double getCleaningsum() {
+        return cleaningsum;
+    }
+
+    public void setCleaningsum(double cleaningsum) {
+        this.cleaningsum = cleaningsum;
+    }
+
+    public double getSnacksum() {
+        return snacksum;
+    }
+
+    public void setSnacksum(double snacksum) {
+        this.snacksum = snacksum;
+    }
+
     // Identifing Getters and Setters
     public String getStorename() {
         return storename;
@@ -78,7 +108,5 @@ public class JBCStore {
     }
 
     // Math Stuff
-     private Double inventoryrevenue;
-
-
+    private Double inventoryrevenue;
 }

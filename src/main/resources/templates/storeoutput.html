@@ -11,10 +11,12 @@
         Store Name: <span th:text="${jBCStore.storename}"></span><br />
         Store Hours: <span th:text="${jBCStore.storeopen}"></span> to
         <span th:text="${jBCStore.storeclose}"></span><br />
-        Store Manager<span th:text="${jBCStore.storemanager}"></span><br /><br /><br />
+        Store Manager: <span th:text="${jBCStore.storemanager}"></span><br /><br /><br />
     </tr>
 </table>
 <br /><h3>Cosmetics</h3><br />
+<tr th:each="jBCStore : ${jbc}">
+    Cosmetic Inventory Sum: <span th:text="${jBCStore.cos}"></span>
 <a th:href="@{/addcosmetics}">Add Cosmetics</a><br /><br />
 <table>
 
