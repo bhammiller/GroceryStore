@@ -17,6 +17,9 @@ public class Snacks {
     private long id;
 
     @NotNull
+    private String snackname;
+
+    @NotNull
     private String snackcrunchiness;
 
     @NotNull
@@ -31,6 +34,14 @@ public class Snacks {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getSnackname() {
+        return snackname;
+    }
+
+    public void setSnackname(String snackname) {
+        this.snackname = snackname;
     }
 
     public String getSnackcrunchiness() {

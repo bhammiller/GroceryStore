@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Cleaning Items</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/processcleaning}"
+      th:object="${addcleaning}"
+      method="post">
+    <h2>Cleaning Items</h2><br />
+    <input type="hidden" th:field="*{id}" />
+
+    Item Name :<input type="text" th:field="*{cleaningname}" />
+    <span th:if="${#fields.hasErrors('cleaningname')}"
+          th:errors="*{cleaningname}"></span><br />
+
+    Strength :<input type="text" th:field="*{cleaningstrength}" />
+    <span th:if="${#fields.hasErrors('cleaningstrength')}"
+          th:errors="*{cleaningstrength}"></span><br />
+
+    Price :<input type="text" th:field="*{cleaningprice}" />
+    <span th:if="${#fields.hasErrors('cleaningprice')}"
+          th:errors="*{cleaningprice}"></span><br />
+
+    Quantity :<input type="text" th:field="*{cleaningquantities} " />
+    <span th:if="${#fields.hasErrors('cleaningquantities')}"
+          th:errors="*{cleaningquantities}"></span><br />
+
+    <br />
+    <input type="submit" value="ADD Entry" />
+    <br />
+</form>
+<a th:href="@{/addsnacks}">Snack Items</a>
+<a th:href="@{/addcosmetics}">Cosmetic Items</a>
+<a th:href="@{/inventorycompletion}">Complete Inventory</a>
+</body>
+</html>

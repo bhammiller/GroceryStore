@@ -17,6 +17,9 @@ public class CleaningItems {
     private long id;
 
     @NotNull
+    private String cleaningname;
+
+    @NotNull
     private String cleaningstrength;
 
     @NotNull
@@ -31,6 +34,14 @@ public class CleaningItems {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getCleaningname() {
+        return cleaningname;
+    }
+
+    public void setCleaningname(String cleaningname) {
+        this.cleaningname = cleaningname;
     }
 
     public String getCleaningstrength() {

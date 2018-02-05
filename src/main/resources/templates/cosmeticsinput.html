@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Title</title>
+    <title>Cosmetics</title>
 </head>
 <body>
+<form action="#"
+      th:action="@{/processcosmetics}"
+      th:object="${addcosmetics}"
+      method="post">
+    <h2>Cosmetics</h2><br />
+    <input type="hidden" th:field="*{id}" />
+    Item Name :<input type="text" th:field="*{cosmeticsname}" />
+    <span th:if="${#fields.hasErrors('cosmeticsname')}"
+          th:errors="*{cosmeticsname}"></span><br />
+    Brand :<input type="text" th:field="*{cosmeticsbrand}" />
+    <span th:if="${#fields.hasErrors('cosmeticsbrand')}"
+          th:errors="*{cosmeticsbrand}"></span><br />
+
+    Price :<input type="text" th:field="*{cosmeticsprice}" />
+    <span th:if="${#fields.hasErrors('cosmeticsprice')}"
+          th:errors="*{cosmeticsprice}"></span><br />
+
+    Popularity :<input type="text" th:field="*{cosmeticspopularity}" />
+    <span th:if="${#fields.hasErrors('cosmeticspopularity')}"
+          th:errors="*{cosmeticspopularity}"></span><br />
+
+    Quantity :<input type="text" th:field="*{cosmeticsquantity} " />
+    <span th:if="${#fields.hasErrors('cosmeticsquantity')}"
+          th:errors="*{cosmeticsquantity}"></span><br />
+
+    <br />
+    <input type="submit" value="ADD Entry" />
+    <br />
+</form>
+<a th:href="@{/addcleaning}">Cleaning Items</a>
+<a th:href="@{/addsnacks}">Snack Items</a>
+<a th:href="@{/inventorycompletion}">Complete Inventory</a>
 
 </body>
 </html>

@@ -1,10 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Store Details</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+<form action="#"
+      th:action="@{/process}"
+      th:object="${jbc}"
+      method="post">
+
+    <input type="hidden" th:field="*{id}" />
+
+    Store Name :<input type="text" class="form-control" th:field="*{storename}" />
+    <small class="form-text text-muted">store name.</small>
+    <span th:if="${#fields.hasErrors('storename')}"
+          th:errors="*{storename}"></span><br />
+
+    Store Manager :<input type="text" th:field="*{storemanager}" />
+    <span th:if="${#fields.hasErrors('storemanager')}"
+          th:errors="*{storemanager}"></span><br />
+
+    Store Opening :<input type="text" th:field="*{storeopen}" />
+    <span th:if="${#fields.hasErrors('storeopen')}"
+          th:errors="*{storeopen}"></span><br />
+
+    Store Closing :<input type="text" th:field="*{storeclose}" />
+    <span th:if="${#fields.hasErrors('storeclose')}"
+          th:errors="*{storeclose}"></span><br />
+
+    <br />
+    <input type="submit" value="Next" />
+    <br />
+</form>
 
 </body>
 </html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Store Inventory</title>
+</head>
+<body>
+<table>
+
+    <tr th:each="jBCStore : ${jbc}">
+        Store Name: <span th:text="${jBCStore.storename}"></span><br />
+        Store Hours: <span th:text="${jBCStore.storeopen}"></span> to
+        <span th:text="${jBCStore.storeclose}"></span><br />
+        Store Manager<span th:text="${jBCStore.storemanager}"></span><br /><br /><br />
+    </tr>
+</table>
+<br /><h3>Cosmetics</h3><br />
+<a th:href="@{/addcosmetics}">Add Cosmetics</a><br /><br />
+<table>
+
+    <tr th:each="cosmetics : ${cosmetic}">
+        Item Name: <span th:text="${cosmetics.cosmeticsname}"></span><br />
+        Brand: <span th:text="${cosmetics.cosmeticsbrand}"></span><br />
+        Unit Price: <span th:text="${cosmetics.cosmeticsprice}"></span><br />
+        Popularity: <span th:text="${cosmetics.cosmeticspopularity}"></span><br />
+        Quantities: <span th:text="${cosmetics.cosmeticsquantity}"></span><br /><br /><br />
+    </tr>
+</table>
+
+<h3>Cleaning Items</h3><br />
+<a th:href="@{/addcleaning}">Add Cleaning Products</a><br /><br />
+<table>
+
+    <tr th:each="cleaningItems : ${cleaning}">
+        Item Name: <span th:text="${cleaningItems.cleaningname}"></span><br />
+        Cleaning Strength: <span th:text="${cleaningItems.cleaningstrength}"></span><br />
+        Unit Price: <span th:text="${cleaningItems.cleaningprice}"></span><br />
+        Quantities<span th:text="${cleaningItems.cleaningquantities}"></span><br />
+    </tr>
+</table>
+<br />
+
+<h3>Snacks</h3> <br />
+<a th:href="@{/addsnacks}">Add Snacks</a><br /><br />
+<table>
+
+    <tr th:each="snacks : ${snack}">
+        Item Name: <span th:text="${snacks.snackname}"></span><br />
+        Crunchiness: <span th:text="${snacks.snackcrunchiness}"></span><br />
+        Price: <span th:text="${snacks.snackprice}"></span><br />
+        Item Price: <span th:text="${snacks.snackquantity}"></span><br /><br /><br />
+    </tr>
+</table>
+</body>
+</html>

@@ -17,6 +17,11 @@ public class Cosmetics {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+
+
+    @NotNull
+    private String cosmeticsname;
+
     @NotNull
     private String cosmeticsbrand;
 
@@ -29,13 +34,20 @@ public class Cosmetics {
     @NotNull
     private Double cosmeticsquantity;
 
-
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getCosmeticsname() {
+        return cosmeticsname;
+    }
+
+    public void setCosmeticsname(String cosmeticsname) {
+        this.cosmeticsname = cosmeticsname;
     }
 
     public String getCosmeticsbrand() {
